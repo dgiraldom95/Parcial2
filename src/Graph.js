@@ -19,18 +19,17 @@ const Graph = (props) => {
         .attr('height', height)
         .style('border', '1px solid black');
 
-      const update = svg.append('g').selectAll('text').data(props.data);
+      const update = svg.append('g').selectAll('rect').data(props.data);
 
       update
         .enter()
         .append('rect')
         .attr('fill', 'navy')
         .attr('class', 'sBar')
-        .attr('width', 50)
-        .attr('height', (d, i) => 7 * d)
+        .attr('width', 10)
+        .attr('height', 50)
         .attr('x', (d, i) => i * 25)
         .attr('y', (d, i) => d.views * 30)
-        .style('font-size', 24)
         .text((d) => d.id);
     }
   });
